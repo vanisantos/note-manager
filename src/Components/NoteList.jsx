@@ -1,26 +1,23 @@
 import React, { Component } from "react"
+import NoteCard from "./NoteCard"
 
-export class NoteList extends Component {
-  render(){
-    return(
+class NoteList extends Component {
+  
+  render() {
+    return (
       <ul>
-        <li>
-          <section>
-            <header>
-              <h3>Título</h3>
-            </header>
-            <p>Escreva sua nota</p>
-          </section>
-        </li>
-        <li>
-          <section>
-            <header>
-              <h3>Título</h3>
-            </header>
-            <p>Escreva sua nota</p>
-          </section>
-        </li>
+        {["Trabalho","Estudos","Casa"].map((categories) => {
+          return (
+            <li>
+              <div>{ categories }</div>
+              <NoteCard/>
+            </li>
+            )
+          })
+        }
       </ul>
-    )
+    );
   }
 }
+
+export default NoteList;
