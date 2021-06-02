@@ -1,12 +1,13 @@
 
 import { Component } from "react";
-import FormRegister from "./Components/FormRegister";
-import NoteList from "./Components/NoteList"
+import { FormRegister, NoteList } from "./Components";
+import "./assets/App.css"
+import './assets/index.css';
 
 class App extends Component {
   render() {
     return (
-      <section>
+      <section className="contend">
         <FormRegister/>
         <NoteList/>
       </section>
