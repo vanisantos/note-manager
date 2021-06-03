@@ -3,14 +3,14 @@ import CardNote from "../CardNote";
 import "./style.css"
 
 class NoteList extends Component {
-  
+
   render() {
     return (
       <ul className="note-list">
-        {["Trabalho","Estudos","Casa"].map((categories, index) => {
+        {this.props.notes.map((notes, index) => {
           return (
             <li className="note-list_item" key={index}>
-              <CardNote/>
+              <CardNote title={notes.title} text={notes.text}/>
             </li>
             )
           })
