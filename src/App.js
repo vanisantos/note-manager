@@ -13,15 +13,28 @@ class App extends Component {
     };
   }
 
-  createNote(title, text){
+  createNote(title, text) {
     const newNote = {
       title,
       text
     }
+
     const newNoteList = [...this.state.notes, newNote]
     const newState = {
       notes: newNoteList
     };
+    
+    this.setState(newState);
+  }
+
+  deleteNote(index) {
+    let notes = this.state.notes;
+    notes.splice(index,1)
+
+    const newState = {
+      notes: notes
+    };
+    
     this.setState(newState);
   }
 
@@ -29,7 +42,10 @@ class App extends Component {
     return (
       <section className="contend">
         <FormRegister createNote={this.createNote.bind(this)}/>
-        <NoteList notes={this.state.notes}/>
+        <NoteList 
+          deleteNote={this.deleteNote.bind(this)}
+          notes={this.state.notes}
+        />
       </section>
     );
   }
