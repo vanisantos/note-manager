@@ -14,10 +14,11 @@ class App extends Component {
     };
   }
 
-  createNote(title, text) {
+  createNote(title, text, category) {
     const newNote = {
       title,
-      text
+      text,
+      category
     }
 
     const newNoteList = [...this.state.notes, newNote]
@@ -52,7 +53,10 @@ class App extends Component {
   render() {
     return (
       <section className="contend">
-        <FormRegister createNote={this.createNote.bind(this)}/>
+        <FormRegister 
+          categories={this.state.categories}
+          createNote={this.createNote.bind(this)}
+        />
         <main className="main-contend">
           <CategoriesList 
             addCategory={this.addCategory.bind(this)}
