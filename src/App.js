@@ -1,6 +1,6 @@
 
 import { Component } from "react";
-import { FormRegister, NoteList } from "./Components";
+import { FormRegister, NoteList, CategoriesList } from "./Components";
 import "./assets/App.css"
 import './assets/index.css';
 
@@ -9,6 +9,7 @@ class App extends Component {
     super();
     
     this.state = {
+      categories: [],
       notes: []
     };
   }
@@ -38,14 +39,29 @@ class App extends Component {
     this.setState(newState);
   }
 
+  addCategory(category) {
+    const newCategoriesList = [...this.state.categories, category]
+    const newState = {
+      ...this.state,
+      categories: newCategoriesList
+    };
+    
+    this.setState(newState);
+  }
+
   render() {
     return (
       <section className="contend">
         <FormRegister createNote={this.createNote.bind(this)}/>
-        <NoteList 
-          deleteNote={this.deleteNote.bind(this)}
-          notes={this.state.notes}
-        />
+        <main className="main-contend">
+          <CategoriesList 
+            addCategory={this.addCategory.bind(this)}
+            categories={this.state.categories}/>
+          <NoteList
+            deleteNote={this.deleteNote.bind(this)}
+            notes={this.state.notes}
+          />
+        </main>
       </section>
     );
   }
