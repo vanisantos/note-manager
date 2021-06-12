@@ -7,6 +7,7 @@ class FormRegister extends Component {
     super(props);
     this.title = "";
     this.noteText = "";
+    this.category= "Sem Categoria";
   }
 
   _handleTitleChange(event) {
@@ -19,10 +20,15 @@ class FormRegister extends Component {
     this.noteText = event.target.value;
   }
 
+  _handleCategoryChange(event) {
+    event.stopPropagation();
+    this.category = event.target.value;
+  }
+
   _createNote(event) {
     event.preventDefault();
     event.stopPropagation();
-    this.props.createNote(this.title, this.noteText);
+    this.props.createNote(this.title, this.noteText, this.category);
   }
 
   render() { 
@@ -31,6 +37,15 @@ class FormRegister extends Component {
         className="form-register"
         onSubmit={this._createNote.bind(this)}
       >
+        <select 
+          onChange={this._handleCategoryChange.bind(this)} 
+          className="form-register_input"
+        >
+          <option>Sem Categoria</option>
+          {this.props.categories.map(category => {
+            return <option>{category}</option>
+          })}
+        </select>
         <input 
           type="text" 
           placeholder="Título"

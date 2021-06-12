@@ -14,7 +14,9 @@ class NoteList extends Component {
                 index={index}
                 deleteNote={this.props.deleteNote}
                 title={note.title} 
-                text={note.text}/>
+                text={note.text}
+                category={note.category}
+              />
             </li>
             )
           })
