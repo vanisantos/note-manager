@@ -9,4 +9,4 @@ Aprender e entender também sobre o ciclo de vida dos componentes, como a difere
 
 ### Tecnologias
 
-Para o desenvolvimento deste projeto foi usado React JSe CSS para estilização dos componentes.
+Para o desenvolvimento deste projeto foi usado React JS e CSS para estilização dos componentes.
