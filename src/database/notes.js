@@ -8,6 +8,10 @@ export default class Notes {
     this._subscribed.push(subscribeFunction)
   }
 
+  unsubscribe(unsubscribeFunction){
+    this._inscritos = this._inscritos.filter(func => func !== unsubscribeFunction);
+  }
+
   notify(){
     this._subscribed.forEach(func => {
       func(this.notes);
